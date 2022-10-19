@@ -16,4 +16,8 @@ class Patient extends Model
     public function medical_report(){
         return $this->hasMany(MedicalReport::class, 'patient_id');
     }
+
+    public function appointment(){
+        return $this->hasMany(Appointment::class, 'patient_id');
+    }
 }

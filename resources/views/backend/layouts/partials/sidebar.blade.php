@@ -97,13 +97,22 @@
                          <li class="{{ Route::is('admin.patient.index')  || Route::is('admin.patient.edit') || Route::is('admin.patient.show') ? 'active' : '' }}"><a href="">Order Medicines</a></li>
                          <li class="{{ Route::is('admin.medical_record.index')  || Route::is('admin.medical_record.edit') || Route::is('admin.medical_record.show') ? 'active' : '' }}"><a href="{{ route('admin.medical_record.index') }}">Medical Records</a></li>
                         
-                         <li class="{{ Route::is('admin.patient.index')  || Route::is('admin.patient.edit') || Route::is('admin.patient.show') ? 'active' : '' }}"><a href="">Appointments</a></li>
+                         <li class="{{ Route::is('admin.appointment.index')  || Route::is('admin.appointment.edit') || Route::is('admin.appointment.show') ? 'active' : '' }}"><a href="{{ route('admin.appointment.index') }}">Appointments</a></li>
                                            
                         </ul>
                     </li>
         
                     
                     <!-- end patient -->
+
+                     <!-- Slot section -->
+                     <li>
+                        <a href="{{ route('admin.slot.index') }}" aria-expanded="true"><i class="fa fa-scribd"></i><span>
+                            Slot
+                        </span></a>
+                       
+                    </li>
+                    <!-- end slot section -->
 
                     <!-- visa/passport/travel section -->
                     <li>

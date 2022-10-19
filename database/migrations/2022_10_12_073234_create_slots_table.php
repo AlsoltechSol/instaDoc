@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('slots', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+    
             $table->date('date');
             $table->string('time');
 

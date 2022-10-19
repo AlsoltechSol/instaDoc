@@ -44,6 +44,13 @@ Route::group(['prefix' => 'admin'], function () {
     //medical-record
     Route::resource('medical_record', 'Backend\MedicalRecordController', ['names' => 'admin.medical_record']);
 
+    //appointment
+    Route::resource('appointment', 'Backend\AppointmentPatientController', ['names' => 'admin.appointment']);
+
+
+    //slot
+    Route::resource('slot', 'Backend\SlotController', ['names' => 'admin.slot']);
+
 
     // Login Routes
     Route::get('/login', 'Backend\Auth\LoginController@showLoginForm')->name('admin.login');
