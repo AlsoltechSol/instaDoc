@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Slot extends Model
 {
     use HasFactory;
+
+    public function appoints(){
+        return $this->hasMany(Appointment::class, 'slot_id');
+    }
 }

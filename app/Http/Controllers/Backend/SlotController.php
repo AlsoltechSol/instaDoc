@@ -4,14 +4,13 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\MedicalReport;
+use App\Models\Slot;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-
-class MedicalRecordController extends Controller
+class SlotController extends Controller
 {
     public $user;
 
@@ -29,8 +28,9 @@ class MedicalRecordController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $record=MedicalReport::all();
-        return view('backend.pages.medical_record.index',compact('record'));
+    {
+        $slot=Slot::all();
+        return view('backend.pages.slot.index',compact('slot'));
         
     }
 
@@ -63,9 +63,7 @@ class MedicalRecordController extends Controller
      */
     public function show($id)
     {
-        $doc_detail = MedicalReport::findOrFail($id);
-   
-        return view('backend.pages.medical_record.show',compact('doc_detail'));
+        //
     }
 
     /**
