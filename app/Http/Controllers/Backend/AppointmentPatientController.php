@@ -63,7 +63,9 @@ class AppointmentPatientController extends Controller
      */
     public function show($id)
     {
-        //
+        $appointment_detail = Appointment::findOrFail($id);
+   
+        return view('backend.pages.appointment.show',compact('appointment_detail'));
     }
 
     /**
