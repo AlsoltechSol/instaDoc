@@ -109,7 +109,7 @@ Appointment - Admin Panel
                                     <td>{{$appoint->payment_status}}</td>
                                     <td>{{$appoint->appointment_status}}</td>
                                     <td>
-                                    <a class="btn" data-toggle="tooltip" href=""><i class="fa fa-eye"></i></a> 
+                                    <a class="btn" data-toggle="tooltip" href="{{ route('admin.appointment.show',$appoint->id) }}"><i class="fa fa-eye"></i></a> 
 
                                     </td>
 
