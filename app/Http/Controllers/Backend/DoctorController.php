@@ -191,6 +191,10 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $doctor = Doctor::find($id);
+        if(!is_null($doctor)){
+            $doctor->delete();
+        }
+        return back();
     }
 }

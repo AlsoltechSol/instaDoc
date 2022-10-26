@@ -104,7 +104,12 @@ Appointment - Admin Panel
                                 <tr>
                                     <td>{{$loop->index+1}}</td>
                                     <td>{{$appoint->patient_details_appoint->name}}</td>
-                                    <td>{{$appoint->doctor_details_appoint->name}}</td>
+                                    <td>@isset($appoint->doctor_details_appoint->name)
+                                             {{$appoint->doctor_details_appoint->name}}
+                                        @else
+                                        Doctor Not Available                   
+                                        @endisset
+                                    </td>
                                     <td></td>
                                     <td>{{$appoint->payment_status}}</td>
                                     <td>{{$appoint->appointment_status}}</td>

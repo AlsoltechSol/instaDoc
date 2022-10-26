@@ -61,14 +61,22 @@ Appointment - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;"><b>Doctor Allocated</b></td>
                           <td> 
-                          {{$appointment_detail->doctor_details_appoint->name}}
+                          @isset($appoint->doctor_details_appoint->name)
+                                {{$appoint->doctor_details_appoint->name}}
+                          @else
+                                Doctor Not Available                   
+                          @endisset
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;"><b>Slot Date</b></td>
                           <td> 
-                        
-                          {{$appointment_detail->slot_details_appoint->date}}
+                          @isset($appointment_detail->slot_details_appoint->date)
+                                {{$appointment_detail->slot_details_appoint->date}}
+                          @else
+                                 Not Available                   
+                          @endisset
+                          
                           </td>
                       </tr>
                      
