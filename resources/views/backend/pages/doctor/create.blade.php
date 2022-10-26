@@ -107,7 +107,119 @@ Doctors Create - Admin Panel
 
                              </div>  
                         </div>
-                                         
+                         <hr>
+                        <h4 class="header-title"> Slot's Availability </h4>
+                       
+                <div class="form-row">
+                       
+                    <div class="form-group col-lg-2">
+
+                        <fieldset >
+                            <legend>Monday</legend>
+                            @foreach($slot as $slots)
+                        @if($slots->weekday == "Monday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                            
+                        </fieldset>
+                        </div>
+                    <div class="form-group col-lg-2">
+                        <fieldset>
+                            <legend>Tuesday</legend>
+                            @foreach($slot as $slots)
+                             @if($slots->weekday == "Tuesday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                        </fieldset>
+                    </div> 
+                    <div class="form-group col-lg-2">
+                        <fieldset>
+                            <legend>Wednesday</legend>
+                            @foreach($slot as $slots)
+                             @if($slots->weekday == "Wednesday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                        </fieldset>
+                    </div>
+                    
+                    <div class="form-group col-lg-2">
+                        <fieldset>
+                            <legend>Thursday</legend>
+                            @foreach($slot as $slots)
+                             @if($slots->weekday == "Thursday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                        </fieldset>
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <fieldset>
+                            <legend>Friday</legend>
+                            @foreach($slot as $slots)
+                             @if($slots->weekday == "Friday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                        </fieldset>
+                    </div>
+                    <div class="form-group col-lg-2">
+                        <fieldset>
+                            <legend>Saturday</legend>
+                            @foreach($slot as $slots)
+                             @if($slots->weekday == "Saturday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                        </fieldset>
+                    </div>
+
+                </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-lg-2">
+                        <fieldset>
+                            <legend>Sunday</legend>
+                            @foreach($slot as $slots)
+                             @if($slots->weekday == "Sunday")
+                            <div>
+                           
+                                <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
+                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                            </div>
+                            @endif
+                            @endforeach
+                        </fieldset>
+                    </div>
+                </div>
+
                         <div style="text-align:center;">
                         <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
                         <a class="btn btn-danger" href="{{url('/admin/doctor')}}">Cancel </a>

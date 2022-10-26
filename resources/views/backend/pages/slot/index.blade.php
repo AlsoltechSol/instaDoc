@@ -55,22 +55,26 @@ Slot - Admin Panel
                             <thead class="bg-light text-capitalize">
                                 <tr>
                                     <th>Sl</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
+                                    <th>Schedule Day</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Status</th>
                                     <th>Action</th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                            @foreach($slot as $slots)
-                               <tr>
-                                <td>{{$loop->index+1}}</td>
-                                <td>{{$slots->date}}</td>
-                                <td>{{$slots->time}}</td>
-                                <td></td>
+                                @foreach($slot as $slots)
+                                <tr>
+                                   <td>{{$loop->index+1}}</td>
+                                   <td>{{$slots->weekday}}</td> 
+                                   <td>{{$slots->start_time}}</td> 
+                                   <td>{{$slots->end_time}}</td> 
+                                   <td></td> 
+                                   <td></td> 
 
-                               </tr>
-                            @endforeach
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

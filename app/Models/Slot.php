@@ -12,4 +12,9 @@ class Slot extends Model
     public function appoints(){
         return $this->hasMany(Appointment::class, 'slot_id');
     }
+
+    
+    public function doc_details(){
+        return $this->hasMany(Doctor::class);
+    }
 }

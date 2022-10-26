@@ -75,8 +75,7 @@ Appointment - Admin Panel
                       <tr>
                           <td class="ft-200" style="width: 250px;"><b>Slot Time</b></td>
                           <td> 
-                          {{$appointment_detail->slot_details_appoint->time}}
-                      
+
                           
 
                           </td>

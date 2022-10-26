@@ -31,9 +31,9 @@ Admins - Admin Panel
         <span>{{$details->name}} </span>
     </ul>
 
-    <header class="panel-heading">
+    <!-- <header class="panel-heading">
             <span class="h4">Doctor Details</span>
-    </header>
+    </header> -->
                
     <div class="container">
           
@@ -119,9 +119,41 @@ Admins - Admin Panel
                   </div>
             </div>
              
-            <footer class="panel-footer text-right bg-light lter" style="z-index: 100;margin: 1.25rem 0 bottom: -0.75rem;position: absolute; bottom: 2px; right: 5px;">
-              <a href="{{url('/admin/doctor')}}" class="btn btn-danger">Back</a>
-          </footer>
+
+          
+        </div>
+    </div>
+
+
+    <div id="accordion">
+
+            <div class="card">
+              <div class="card-header">
+                  <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                    Doctor Schedule
+                    
+                  </a>
+              </div>
+              <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                  <div class="card-body">
+                    <table id="dataTable" class="table table-details">
+                        <tbody>
+                        
+                      <tr>
+                          <td class="ft-200" style="width: 250px;"><b>Doctor Name</b></td>
+                          <td> 
+                            
+                       
+                          </td>
+                      </tr>
+                     
+                    
+                        </tbody>
+                    </table>
+                  </div>
+            </div>
+             
+
           
         </div>
     </div>
