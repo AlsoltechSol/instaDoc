@@ -49,7 +49,7 @@ Doctors - Admin Panel
                         
                     </p>
                     <div class="clearfix"></div>
-                    <div class="data-tables">
+                    <div class="data-tables " style="display:grid;">
                         @include('backend.layouts.partials.messages')
                         <table id="dataTable" class="text-center">
                             <thead class="bg-light text-capitalize">
@@ -83,8 +83,21 @@ Doctors - Admin Panel
                                 @endif
                  
 
-                                    <a class="btn" data-toggle="tooltip" href=""><i class="fa fa-trash"></i></a> 
+                                    <!-- <a class="btn" data-toggle="tooltip" href=""><i class="fa fa-trash"></i></a>  -->
+                                    <!-- <button class="formConfirm"  data-form="#frmDelete-{{$doctors->id}}" data-title="Delete banner" data-message="Are you sure, you want to delete this ?" 
+                                    <i title="Delete" style="margin-right: 0;" class="fas fa-trash" aria-hidden="true"></i>
+                                    
+                                        
+                                        </button> -->
+                                        <button class="formConfirm" data-form="#frmDelete-{{$doctors->id}}" data-title="Delete" data-message="Are you sure, you want to delete?" >
+                                            <i title="Delete" style="margin-right: 0;" class="fa fa-trash" aria-hidden="true"></i>
 
+                                        </button>
+
+                                        <form id="frmDelete-{{ $doctors->id }}" action="{{ route('admin.doctor.destroy', $doctors->id) }}" method="POST" style="display: none;">
+                                            @method('DELETE')
+                                            @csrf
+                                        </form>
                                 </td>
 
                               </tr>
@@ -99,6 +112,24 @@ Doctors - Admin Panel
         
     </div>
 </div>
+
+<!-- delete modal bootstrap -->
+<div class="modal fade" id="formConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="frm_title">Delete</h4>
+      </div>
+      <div class="modal-body" id="frm_body">Are you sure, you want to delete ?</div>
+      <div class="modal-footer">
+        <button style='margin-left:10px;' type="button" class="btn btn-danger col-sm-2 pull-right" id="frm_submit">Confirm</button>
+        <button type="button" class="btn btn-primary col-sm-2 pull-right" data-dismiss="modal" id="frm_cancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>   
+<!-- end modal -->
 @endsection
 
 
@@ -110,7 +141,7 @@ Doctors - Admin Panel
      <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
      <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap.min.js"></script>
      
-     <script>
+     <script  type="text/javascript">
          /*================================
         datatable active
         ==================================*/
@@ -119,6 +150,32 @@ Doctors - Admin Panel
                 responsive: true
             });
         }
+        </script>
+<script>
+  $(document).ready(function(){
+    $('.formConfirm').on('click', function(e) {
+    //alert();
+        e.preventDefault();
+        var el = $(this);
+        // alert(el);
+        var title = el.attr('data-title');
+        var msg = el.attr('data-message');
+        var dataForm = el.attr('data-form');
+        
+        $('#formConfirm')
+        .find('#frm_body').html(msg)
+        .end().find('#frm_title').html(title)
+        .end().modal('show');
+        
+        $('#formConfirm').find('#frm_submit').attr('data-form', dataForm);
+  });
+  $('#formConfirm').on('click', '#frm_submit', function(e) {
+        var id = $(this).attr('data-form');
+       // alert(id);
+        $(id).submit();
+  });
+
+  });
 
      </script>
 @endsection
