@@ -31,9 +31,9 @@ Patient - Admin Panel
         <span>{{$patient_detail->name}} </span>
     </ul>
 
-    <header class="panel-heading">
+    <!-- <header class="panel-heading">
             <span class="h4">Patient Details</span>
-    </header>
+    </header> -->
                
     <div class="container">
           
@@ -114,12 +114,48 @@ Patient - Admin Panel
                     </table>
                   </div>
             </div>
-             
-            <footer class="panel-footer text-right bg-light lter" style="z-index: 100;margin: 1.25rem 0 bottom: -0.75rem;position: absolute; bottom: 2px; right: 5px;">
-              <a href="{{url('/admin/patient')}}" class="btn btn-danger">Back</a>
-            </footer>
-          
+        </div>         
+    </div>
+       <!-- second accordion -->
+
+       <div id="accordion">
+
+            <div class="card">
+              <div class="card-header">
+                  <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                    Medical Reports
+                    
+                  </a>
+              </div>
+              <div id="collapseTwo" class="collapse " data-parent="#accordion">
+                  <div class="card-body">
+                    <table id="dataTable" class="table table-details">
+                        <tbody>
+                        
+                      <tr>
+                          <td class="ft-200" style="width: 250px;"><b>Document Type</b></td>
+                          <td> 
+                          
+                       {{$patient_detail->medical_report[0]->document_type}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;"><b>Document File</b></td>
+                          <td> 
+                       {{$patient_detail->medical_report[0]->document_file}}
+                          
+                          </td>
+                      </tr>
+
+                     
+                        </tbody>
+                    </table>
+                  </div>
+            </div>
         </div>
+             
+           
+          
     </div>
 </div>
 

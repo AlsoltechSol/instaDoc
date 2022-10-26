@@ -81,6 +81,8 @@ Doctors - Admin Panel
 
                                     <a class="btn" data-toggle="tooltip" href="{{ route('admin.doctor.edit',$doctors->id) }}"><i class="fa fa-pencil"></i></a> 
                                 @endif
+                 
+
                                     <a class="btn" data-toggle="tooltip" href=""><i class="fa fa-trash"></i></a> 
 
                                 </td>

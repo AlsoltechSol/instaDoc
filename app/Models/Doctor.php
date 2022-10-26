@@ -12,4 +12,8 @@ class Doctor extends Model
     public function appoint(){
         return $this->hasMany(Appointment::class, 'doctor_id');
     }
+
+    public function slot_det(){
+        return $this->belongsTo(Slot::class);
+    }
 }

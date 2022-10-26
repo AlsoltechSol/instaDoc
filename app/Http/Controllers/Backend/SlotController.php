@@ -41,7 +41,8 @@ class SlotController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.slot.create');
+        
     }
 
     /**

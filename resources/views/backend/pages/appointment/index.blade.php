@@ -105,7 +105,7 @@ Appointment - Admin Panel
                                     <td>{{$loop->index+1}}</td>
                                     <td>{{$appoint->patient_details_appoint->name}}</td>
                                     <td>{{$appoint->doctor_details_appoint->name}}</td>
-                                    <td>{{$appoint->slot_details_appoint->date}} ({{$appoint->slot_details_appoint->time}})</td>
+                                    <td></td>
                                     <td>{{$appoint->payment_status}}</td>
                                     <td>{{$appoint->appointment_status}}</td>
                                     <td>

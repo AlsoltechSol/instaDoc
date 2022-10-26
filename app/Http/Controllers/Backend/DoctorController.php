@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Doctor;
+use App\Models\DoctorSlotSelected;
+
+use App\Models\Slot;
+
 use File;
 
 
@@ -50,8 +54,9 @@ class DoctorController extends Controller
         if (is_null($this->user) || !$this->user->can('doctor.create')) {
             abort(403, 'Sorry !! You are Unauthorized to view any role !');
         }
-        
-        return view('backend.pages.doctor.create');
+        $slot=Slot::all();
+        //dd($slot);
+        return view('backend.pages.doctor.create',compact('slot'));
         
     }
 
@@ -83,6 +88,17 @@ class DoctorController extends Controller
         $doctor->image=$filename;
 
         $doctor->save();
+
+        if($doctor->save()){
+            foreach ($request->slot as $index=>$slots){
+
+                $doctor_slot = new DoctorSlotSelected();
+                $doctor_slot->doctor_id = $doctor->id;
+                $doctor_slot->slot_id = $request->slot[$index];
+                $doctor_slot->save();
+
+            }
+        }
 
         session()->flash('success', 'Doctor Profile has been created !!');
         return redirect()->route('admin.doctor.index');
@@ -119,6 +135,8 @@ class DoctorController extends Controller
       
         return view('backend.pages.doctor.edit',compact('doctor')); 
     }
+
+   
 
     /**
      * Update the specified resource in storage.
