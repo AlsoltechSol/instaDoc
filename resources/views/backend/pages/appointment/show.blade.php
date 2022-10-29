@@ -25,8 +25,8 @@ Appointment - Admin Panel
            
 
     <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-        <li><a href=""><i class="fa fa-home"></i>Home</a></li>>
-        <li><a href="">Appointment's Details</a></li> >
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-home"></i>Home</a></li>>
+        <li><a href="{{ route('admin.appointment.index') }}">Appointment's Details</a></li> >
         <!-- <li><a href=""></a></li> -->
         <span> {{$appointment_detail->patient_details_appoint->name}}</span>
     </ul>

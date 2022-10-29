@@ -25,8 +25,8 @@ Records  - Admin Panel
            
 
     <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-        <li><a href=""><i class="fa fa-home"></i>Home</a></li>>
-        <li><a href="">Medical Record Details</a></li> >
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-home"></i>Home</a></li>>
+        <li><a href="{{ route('admin.medical_record.index') }}">Medical Record Details</a></li> >
         <!-- <li><a href=""></a></li> -->
         <span>{{$doc_detail->patient_details->name}} </span>
     </ul>

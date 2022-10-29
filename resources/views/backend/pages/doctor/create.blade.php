@@ -121,7 +121,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach
@@ -136,7 +136,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach
@@ -150,7 +150,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach
@@ -165,7 +165,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach
@@ -179,7 +179,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach
@@ -193,7 +193,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach
@@ -212,7 +212,7 @@ Doctors Create - Admin Panel
                             <div>
                            
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
-                                <label for="coding">{{$slots->start_time}}-{{$slots->end_time}}</label>
+                                <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
                             @endif
                             @endforeach

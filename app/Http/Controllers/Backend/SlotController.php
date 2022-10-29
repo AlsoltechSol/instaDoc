@@ -53,7 +53,18 @@ class SlotController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request);
+        $slot = new Slot();
+        $slot->date = $request->date;
+        $slot->weekday = $request->weekday;
+        $slot->start_time = $request->start_time;
+        $slot->end_time = $request->end_time;
+       
+        $slot->save();
+
+
+        session()->flash('success', 'Slot  has been created !!');
+        return redirect()->route('admin.slot.index');
     }
 
     /**
@@ -75,7 +86,9 @@ class SlotController extends Controller
      */
     public function edit($id)
     {
-        //
+        $slot = Slot::find($id);
+      
+        return view('backend.pages.slot.edit',compact('slot'));
     }
 
     /**
@@ -87,7 +100,16 @@ class SlotController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $slot=Slot::find($id);
+        $slot->date = $request->date;
+        $slot->weekday = $request->weekday;
+        $slot->start_time = $request->start_time;
+        $slot->end_time = $request->end_time;
+       
+        $slot->save();
+        session()->flash('success', 'Slot  has been updated !!');
+        return redirect()->route('admin.slot.index');
+        
     }
 
     /**
@@ -98,6 +120,10 @@ class SlotController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $slot = Slot::find($id);
+        if(!is_null($slot)){
+            $slot->delete();
+        }
+        return back();
     }
 }
