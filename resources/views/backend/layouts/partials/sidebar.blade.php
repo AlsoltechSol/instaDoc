@@ -114,7 +114,7 @@
                             
                    
                             <li class="{{ Route::is('admin.slot.index')  || Route::is('admin.slot.edit') || Route::is('admin.slot.show') ? 'active' : '' }}"><a href="{{ route('admin.slot.index') }}">All Slots</a></li>
-                            <!-- <li class="{{ Route::is('admin.slot.create')   ? 'active' : '' }}"><a href="{{ route('admin.slot.create') }}">Create Slot</a></li> -->
+                            <li class="{{ Route::is('admin.slot.create')   ? 'active' : '' }}"><a href="{{ route('admin.slot.create') }}">Create Slot</a></li>
                            
                            </ul>
                        

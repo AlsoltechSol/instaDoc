@@ -25,8 +25,8 @@ Patient - Admin Panel
            
 
     <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
-        <li><a href=""><i class="fa fa-home"></i>Home</a></li>>
-        <li><a href="">Patient's Details</a></li> >
+        <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-home"></i>Home</a></li>>
+        <li><a href="{{ route('admin.patient.index') }}">Patient's Details</a></li> >
         <!-- <li><a href=""></a></li> -->
         <span>{{$patient_detail->name}} </span>
     </ul>

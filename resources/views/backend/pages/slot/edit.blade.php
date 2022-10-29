@@ -2,7 +2,7 @@
 @extends('backend.layouts.master')
 
 @section('title')
-Slot Create - Admin Panel
+Slot Edit - Admin Panel
 @endsection
 
 @section('styles')
@@ -29,7 +29,7 @@ Slot Create - Admin Panel
                 <ul class="breadcrumbs pull-left">
                     <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                     <!-- <li><a href="">All Blogs</a></li> -->
-                    <li><span>Doctors Slot</span></li>
+                    <li><span> Slot</span></li>
                 </ul>
             </div>
         </div>
@@ -46,16 +46,17 @@ Slot Create - Admin Panel
         <div class="col-12 mt-5">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title"> Create Slot </h4>
+                    <h4 class="header-title"> Edit Slot </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.slot.store') }}" method="POST" id="form" data-parsley-validate>
+                    <form action="{{ route('admin.slot.update',$slot->id) }}" method="POST" id="form" data-parsley-validate>
                         @csrf
+                        @method('PUT')
                         <div class="form-group row">
                                 <label class="col-sm-4 col-form-label" style="text-align: right" for="" ><b>  Date </b><span style="color:red; font-size: 18px;line-height:1;">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="date" class="form-control" id="s_date" name="date" required>
+                                <input type="date" class="form-control" id="s_date" name="date" value="{{$slot->date}}" required>
                                 
                                 </div>
                          </div>
@@ -64,7 +65,7 @@ Slot Create - Admin Panel
                                 <label class="col-sm-4 col-form-label" style="text-align: right" for="" ><b>  Weekday </b><span style="color:red; font-size: 18px;line-height:1;">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="text" class="form-control" id="weekday1" name="weekday" required>
+                                <input type="text" class="form-control" id="weekday1" name="weekday" value="{{$slot->weekday}}" required>
                                 
                                 </div>
                          </div>
@@ -73,7 +74,7 @@ Slot Create - Admin Panel
                                 <label class="col-sm-4 col-form-label" style="text-align: right" for="" ><b>  Start Time </b><span style="color:red; font-size: 18px;line-height:1;">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="time" class="form-control" id="start_time" name="start_time" required>
+                                <input type="time" class="form-control" id="start_time" name="start_time" value="{{$slot->start_time}}" required>
                                 
                                 </div>
                          </div>
@@ -82,7 +83,7 @@ Slot Create - Admin Panel
                                 <label class="col-sm-4 col-form-label" style="text-align: right" for="" ><b>  End Time </b><span style="color:red; font-size: 18px;line-height:1;">*</span></label>
                             
                                 <div class="col-sm-6">
-                                <input type="time" class="form-control" id="end_time" name="end_time" required>
+                                <input type="time" class="form-control" id="end_time" name="end_time" value="{{$slot->end_time}}" required>
                                 
                                 </div>
                          </div>
@@ -90,7 +91,7 @@ Slot Create - Admin Panel
       
                                          
                         <div style="text-align:center;">
-                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Save </button>
+                        <button type="submit" class="btn btn-primary  pr-4 pl-4">Update </button>
                         <a class="btn btn-danger" href="">Cancel </a>
                         </div>
                     </form>

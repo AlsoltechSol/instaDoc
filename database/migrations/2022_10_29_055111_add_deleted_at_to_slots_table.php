@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('slots', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('date');
-            $table->string('weekday');
-            $table->string('start_time');
-            $table->string('end_time');
+        Schema::table('slots', function (Blueprint $table) {
+            $table->softDeletes();
             
-            $table->timestamps();
         });
     }
 
@@ -31,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('slots');
+        Schema::table('slots', function (Blueprint $table) {
+            $table->dropSoftDeletes();
+            
+        });
     }
 };
