@@ -15,7 +15,11 @@ return new class extends Migration
     {
         Schema::create('p_v_trequests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('request_for');
+            $table->string('request_for')->nullable();
+            $table->date('expected_date')->nullable();
+            $table->longText('destination_location')->nullable();
+            $table->enum('status',['Pending','Attaining','Completed','Cancelled'])->default('Pending');
+
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients');
 

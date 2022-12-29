@@ -49,7 +49,7 @@ Doctors Create - Admin Panel
                     <h4 class="header-title"> Create Doctor </h4>
                     @include('backend.layouts.partials.messages')
                     
-                    <form action="{{ route('admin.doctor.store') }}" method="post" id="form" enctype="multipart/form-data" data-parsley-validate>
+                    <form action="{{ route('admin.doctor.store') }}" method="post" id="form_par" enctype="multipart/form-data" data-parsley-validate>
                         @csrf
                     
                         <div class="form-row">
@@ -214,6 +214,7 @@ Doctors Create - Admin Panel
                                 <input type="checkbox" id="slot" name="slot[]" value="{{$slots->id}}" />
                                 <label for="coding">{{$slots->date}}({{$slots->start_time}}-{{$slots->end_time}})</label>
                             </div>
+                           
                             @endif
                             @endforeach
                         </fieldset>
@@ -235,18 +236,19 @@ Doctors Create - Admin Panel
 @endsection
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> -->
 
 <script src="jquery.js"></script>
 <script src="parsley.min.js"></script>
 
-<!-- <script>
-    $(document).ready(function() {
-        $('.select2').select2();
-    })
-</script> -->
 
 <script>
-  $('#form').parsley();
+    $(document).ready(function() {
+        // $('.select2').select2();
+        $('#form_par').parsley();
+
+    })
 </script>
+
+
 @endsection

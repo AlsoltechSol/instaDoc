@@ -91,6 +91,18 @@ class AppointmentPatientController extends Controller
         //
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        $updateStatus=Appointment::find($id);
+        // dd($request->payment_amount);
+         $updateStatus->payment_status = $request->payment_status;
+         $updateStatus->payment_mode = $request->payment_mode;
+ 
+         $updateStatus->save();
+         session()->flash('success', 'Status has been Updated !!');
+         return redirect()->back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *

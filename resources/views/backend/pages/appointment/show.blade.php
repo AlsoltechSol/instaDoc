@@ -106,16 +106,18 @@ Appointment - Admin Panel
                           </td>
                       </tr>
                       <tr>
-                          <td class="ft-200" style="width: 250px;"> <b>Payment Status</b></td>
+                          <td class="ft-200" style="width: 250px;"><b> Payment Status</b></td>
                           <td> 
-                    
                           {{$appointment_detail->payment_status}}
+                       
                           </td>
                       </tr>
                       <tr>
                           <td class="ft-200" style="width: 250px;"><b> Payment Mode</b></td>
                           <td> 
-                          
+                          {{$appointment_detail->payment_mode}}
+                            
+                       
                           </td>
                       </tr>
                       <tr>
@@ -129,13 +131,96 @@ Appointment - Admin Panel
                     </table>
                   </div>
             </div>
+
+            <div id="accordion">
+
+            <div class="card">
+              <div class="card-header">
+                  <a class="card-link" data-toggle="collapse" href="#collapseTwo">
+                    Update Payment Status & Mode                   
+                  </a>
+              </div>
+              <div id="collapseTwo" class="collapse " data-parent="#accordion">
+                  <div class="card-body">
+                    <table id="dataTable" class="table table-details">
+                        <tbody>
+                        
+                     
+                      <tr>
+                          <td class="ft-200" style="width: 250px;"><b>  Payment Status</b></td>
+                          <td> 
+                          <form action="{{route('admin.updateStatus', $appointment_detail->id)}}" method="POST">
+                                   @method('PUT')
+                                     @csrf
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-4">
+                                       
+                                            <select name="payment_status" id="payment_status" class="form-control " >
+                                                <!-- <option value="">Select </option> -->
+                                  
+                                                <option value="Pending" {{$appointment_detail->payment_status=='Pending'?'selected':''}}>Pending</option>
+                                                <option value="Success" {{$appointment_detail->payment_status=='Success'?'selected':''}}>Success</option>
+                                                <option value="Failed" {{$appointment_detail->payment_status=='Failed'?'selected':''}}>Failed</option>                                            
+                                  
+                                            </select>
+                                        </div>
+
+                                    </div>
+                       
+                          </td>
+                      </tr>
+
+                      <tr>
+                          <td class="ft-200" style="width: 250px;"><b> Payment Mode</b></td>
+                          <td> 
+                          <div class="form-row">
+
+                                        <div class="form-group col-md-4">
+
+                                            <select name="payment_mode" id="payment_mode" class="form-control " >
+                                                <!-- <option value="">Select </option> -->
+                                  
+                                                <option value="Online" {{$appointment_detail->payment_mode=='Online'?'selected':''}}>Online</option>
+                                                <option value="Cash" {{$appointment_detail->payment_mode=='Cash'?'selected':''}}>Cash</option>
+                                                <option value="Cheque" {{$appointment_detail->payment_mode=='Cheque'?'selected':''}}>Cheque</option>
+                                                <!-- <option value="Cancelled">Cancelled</option> -->
+                                  
+                                            </select>
+                                        </div>
+
+                                    </div>
+                            
+                       
+                          </td>
+                      </tr>
+                      <tr>
+                          <td class="ft-200" style="width: 250px;"></td>
+                          <td> 
+                          
+                          <button type="submit" class="btn btn-primary">Update</button>
+                          
+                          </td>
+                      </tr>
+                    </form>
+                     
+                    
+                        </tbody>
+                    </table>
+                  </div>
+              </div>
+            </div>
+            </div>
+            
              
             <footer class="panel-footer text-right bg-light lter" style="z-index: 100;margin: 1.25rem 0 bottom: -0.75rem;position: absolute; bottom: 2px; right: 5px;">
               <a href="{{url('/admin/appointment')}}" class="btn btn-danger">Back</a>
           </footer>
           
         </div>
+        
     </div>
+    
 </div>
 
 

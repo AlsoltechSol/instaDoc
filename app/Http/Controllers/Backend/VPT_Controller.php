@@ -63,9 +63,22 @@ class VPT_Controller extends Controller
      */
     public function show($id)
     {
-        //
+        $details = PVTrequest::findOrFail($id);
+   
+        return view('backend.pages.vpt_request.show',compact('details')); 
     }
 
+    public function UpdateStatus(Request $request, $id)
+    {
+        $updateStatus=PVTrequest::find($id);
+        // dd($request->payment_amount);
+         $updateStatus->status = $request->status;
+ 
+         $updateStatus->save();
+         session()->flash('success', 'Status has been Updated !!');
+         return redirect()->back();
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *

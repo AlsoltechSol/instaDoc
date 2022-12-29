@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     //visa/passport/travel 
     Route::resource('vpt_request', 'Backend\VPT_Controller', ['names' => 'admin.vpt_request']);
+    Route::put('UpdateStatus/{id}', array('uses'=>'Backend\VPT_Controller@UpdateStatus', 'as' => 'admin.UpdateStatus'));
 
 
     //medical-record
@@ -46,6 +47,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     //appointment
     Route::resource('appointment', 'Backend\AppointmentPatientController', ['names' => 'admin.appointment']);
+    Route::put('updateStatus/{id}', array('uses'=>'Backend\AppointmentPatientController@updateStatus', 'as' => 'admin.updateStatus'));
 
 
     //slot

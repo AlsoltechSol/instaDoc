@@ -57,6 +57,9 @@ Request - Admin Panel
                                     <th>Sl</th>
                                     <th>Patient Name</th>
                                     <th>Request For</th>
+                                    <th>Expected Date</th>
+                                    <th>Destination Location</th>
+
                                     <th>Action</th>
 
                                 </tr>
@@ -67,7 +70,10 @@ Request - Admin Panel
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$visa->patient_detail->name}}</td>
                                 <td>{{$visa->request_for}}</td>
-                                <td></td>
+                                <td>{{\Carbon\Carbon::parse($visa->expected_date)->format('d/m/Y')}}</td>
+                                <td>{{$visa->destination_location}}</td>
+
+                                <td><a class="btn" data-toggle="tooltip" href="{{ route('admin.vpt_request.show',$visa->id) }}"><i class="fa fa-eye"></i></a></td>
 
                               </tr>
                               @endforeach

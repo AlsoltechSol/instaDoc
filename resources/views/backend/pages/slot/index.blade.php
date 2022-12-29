@@ -76,16 +76,14 @@ Slot - Admin Panel
                                    <td>
                                    <a class="btn" data-toggle="tooltip" href="{{ route('admin.slot.edit',$slots->id) }}"><i class="fa fa-pencil"></i></a> 
 
-                                   <button class="formConfirm" data-form="#frmDelete-{{$slots->id}}" data-title="Delete" data-message="Are you sure, you want to delete?" >
-                                            <i title="Delete" style="margin-right: 0;" class="fa fa-trash" aria-hidden="true"></i>
-
-                                    </button>
-
-                                        <form id="frmDelete-{{ $slots->id }}" action="{{ route('admin.slot.destroy', $slots->id) }}" method="POST" style="display: none;">
+                                   <a class="btn" href="{{ route('admin.slot.destroy', $slots->id) }}"
+                                        onclick="event.preventDefault(); document.getElementById('delete-form-{{ $slots->id }}').submit();">
+                                        <i title="Delete" style="margin-right: 0;" class="fa fa-trash" aria-hidden="true"></i>
+                                    </a>
+                                        <form id="delete-form-{{ $slots->id }}" action="{{ route('admin.slot.destroy', $slots->id) }}" method="POST" style="display: none;">
                                             @method('DELETE')
                                             @csrf
                                         </form>
-                                   </td> 
 
                                 </tr>
                                 @endforeach
@@ -100,23 +98,7 @@ Slot - Admin Panel
     </div>
 </div>
 
-<!-- delete modal bootstrap -->
-<div class="modal fade" id="formConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="frm_title">Delete</h4>
-      </div>
-      <div class="modal-body" id="frm_body">Are you sure, you want to delete ?</div>
-      <div class="modal-footer">
-        <button style='margin-left:10px;' type="button" class="btn btn-danger col-sm-2 pull-right" id="frm_submit">Confirm</button>
-        <button type="button" class="btn btn-primary col-sm-2 pull-right" data-dismiss="modal" id="frm_cancel">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>   
-<!-- end modal -->
+
 @endsection
 
 
@@ -139,31 +121,5 @@ Slot - Admin Panel
         }
 
      </script>
-<script>
-  $(document).ready(function(){
-    $('.formConfirm').on('click', function(e) {
-    //alert();
-        e.preventDefault();
-        var el = $(this);
-        // alert(el);
-        var title = el.attr('data-title');
-        var msg = el.attr('data-message');
-        var dataForm = el.attr('data-form');
-        
-        $('#formConfirm')
-        .find('#frm_body').html(msg)
-        .end().find('#frm_title').html(title)
-        .end().modal('show');
-        
-        $('#formConfirm').find('#frm_submit').attr('data-form', dataForm);
-  });
-  $('#formConfirm').on('click', '#frm_submit', function(e) {
-        var id = $(this).attr('data-form');
-       // alert(id);
-        $(id).submit();
-  });
 
-  });
-
-</script>
 @endsection

@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\Doctor;
 use App\Models\DoctorSlotSelected;
-
+use Carbon\Carbon;
 use App\Models\Slot;
 
 use File;
@@ -54,8 +54,9 @@ class DoctorController extends Controller
         if (is_null($this->user) || !$this->user->can('doctor.create')) {
             abort(403, 'Sorry !! You are Unauthorized to view any role !');
         }
-        $slot=Slot::all();
-        //dd($slot);
+        $date = Carbon::now()->subDays(7);
+        $slot=Slot::where('created_at', '>=', $date)->get();
+       // dd($date);
         return view('backend.pages.doctor.create',compact('slot'));
         
     }
