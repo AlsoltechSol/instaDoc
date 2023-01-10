@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Backend\LabcenterController;
+use App\Http\Controllers\Backend\LabCenterController as BackendLabCenterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,7 +42,6 @@ Route::group(['prefix' => 'admin'], function () {
     //visa/passport/travel 
     Route::resource('vpt_request', 'Backend\VPT_Controller', ['names' => 'admin.vpt_request']);
 
-
     //medical-record
     Route::resource('medical_record', 'Backend\MedicalRecordController', ['names' => 'admin.medical_record']);
 
@@ -51,6 +52,10 @@ Route::group(['prefix' => 'admin'], function () {
     //slot
     Route::resource('slot', 'Backend\SlotController', ['names' => 'admin.slot']);
 
+    
+    //lab-center
+    Route::resource('lab-center', BackendLabCenterController::class, ['names' => 'admin.lab_centers']);
+
 
     // Login Routes
     Route::get('/login', 'Backend\Auth\LoginController@showLoginForm')->name('admin.login');
@@ -60,6 +65,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/logout/submit', 'Backend\Auth\LoginController@logout')->name('admin.logout.submit');
 
     // Forget Password Routes
-    Route::get('/password/reset', 'Backend\Auth\ForgetPasswordController@showLinkRequestForm')->name('admin.password.request');
-    Route::post('/password/reset/submit', 'Backend\Auth\ForgetPasswordController@reset')->name('admin.password.update');
+    // Route::get('/password/reset', 'Backend\Auth\ForgetPasswordController@showLinkRequestForm')->name('admin.password.request');
+    // Route::post('/password/reset/submit', 'Backend\Auth\ForgetPasswordController@reset')->name('admin.password.update');
 });

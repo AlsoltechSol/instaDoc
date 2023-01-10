@@ -106,7 +106,9 @@
                     <!-- end patient -->
 
                      <!-- Slot section -->
-                     <li>
+                  
+
+                    <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-scribd"></i><span>
                              Slot
                         </span></a>
@@ -120,6 +122,22 @@
                        
                     </li>
                     <!-- end slot section -->
+
+                          <!-- Slot section -->
+                          <li>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-scribd"></i><span>
+                                 Labcenter
+                            </span></a>
+                            <ul class="collapse {{ Route::is('admin.slot.create') || Route::is('admin.slot.index') || Route::is('admin.slot.edit') || Route::is('admin.slot.show') ? 'in' : '' }}">
+                                
+                       
+                                <li class="{{ Route::is('admin.slot.index')  || Route::is('admin.slot.edit') || Route::is('admin.slot.show') ? 'active' : '' }}"><a href="{{ route('admin.lab_centers.index') }}">All Centers</a></li>
+                                <li class="{{ Route::is('admin.slot.create')   ? 'active' : '' }}"><a href="{{ route('admin.lab_centers.create') }}">Create Center</a></li>
+                               
+                               </ul>
+                           
+                        </li>
+                        <!-- end slot section -->
 
                     <!-- visa/passport/travel section -->
                     <li>

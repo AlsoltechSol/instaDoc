@@ -81,14 +81,8 @@ Doctors - Admin Panel
 
                                     <a class="btn" data-toggle="tooltip" href="{{ route('admin.doctor.edit',$doctors->id) }}"><i class="fa fa-pencil"></i></a> 
                                 @endif
-                 
-
-                                    <!-- <a class="btn" data-toggle="tooltip" href=""><i class="fa fa-trash"></i></a>  -->
-                                    <!-- <button class="formConfirm"  data-form="#frmDelete-{{$doctors->id}}" data-title="Delete banner" data-message="Are you sure, you want to delete this ?" 
-                                    <i title="Delete" style="margin-right: 0;" class="fas fa-trash" aria-hidden="true"></i>
-                                    
-                                        
-                                        </button> -->
+                                                       
+                                
                                         <button class="formConfirm" data-form="#frmDelete-{{$doctors->id}}" data-title="Delete" data-message="Are you sure, you want to delete?" >
                                             <i title="Delete" style="margin-right: 0;" class="fa fa-trash" aria-hidden="true"></i>
 
@@ -154,7 +148,7 @@ Doctors - Admin Panel
 <script>
   $(document).ready(function(){
     $('.formConfirm').on('click', function(e) {
-    //alert();
+    alert('hi');
         e.preventDefault();
         var el = $(this);
         // alert(el);
@@ -177,5 +171,5 @@ Doctors - Admin Panel
 
   });
 
-     </script>
+</script>
 @endsection
