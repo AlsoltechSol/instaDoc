@@ -125,7 +125,7 @@
 
                           <!-- Slot section -->
                           <li>
-                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-scribd"></i><span>
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="fa fa-flask"></i></i><span>
                                  Labcenter
                             </span></a>
                             <ul class="collapse {{ Route::is('admin.slot.create') || Route::is('admin.slot.index') || Route::is('admin.slot.edit') || Route::is('admin.slot.show') ? 'in' : '' }}">
